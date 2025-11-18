@@ -1,11 +1,16 @@
-THIS FILE IS FOR ANSWERS TO THE QUESTIONS IN THE 01-todo ASSIGNMENT.
-PLEASE DO NOT EDIT UNLESS YOU ARE FILLING IN YOUR ANSWERS.
+## Question 1: Install Django
 
-### Question 1: Install Django
+### Question:
 
-Codex:
+We want to install Django. Ask AI to help you with that.
 
-Initial command to install Django:
+What's the command you used for that?
+
+There could be multiple ways to do it. Put the one that AI suggested in the homework form.
+
+### Answer
+
+Initial command to install Django propsed by Codex:
 ```bash
 cd /home/mpfmorawski/learning/ai-dev-tools-zoomcamp-2025/ && python -m pip install Django
 ```
@@ -16,3 +21,40 @@ cd 01-todo/codex && uv init
 cd 01-todo/codex && uv add django
 ```
 
+## Question 2: Project and App
+
+### Question
+
+Now we need to create a project and an app for that.
+
+Follow the instructions from AI to do it. At some point, you will need to include the app you created in the project.
+
+What's the file you need to edit for that?
+
+- `settings.py`
+- `manage.py`
+- `urls.py`
+- `wsgi.py`
+
+### Answer
+
+The file to edit is `settings.py`.
+
+## Question 3: Django Models
+
+### Question
+
+Let's now proceed to creating models - the mapping from python objects to a relational database.
+
+For the TODO app, which models do we need? Implement them.
+
+What's the next step you need to take?
+
+- Run the application
+- Add the models to the admin panel
+- Run migrations
+- Create a makefile
+
+### Answer
+
+???
