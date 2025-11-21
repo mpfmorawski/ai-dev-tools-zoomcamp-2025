@@ -117,7 +117,7 @@ class TaskViewTest(TestCase, MessagesTestMixin):
         self.assertIsNotNone(task.updated_at)
 
     def test_task_ordering_explicit(self):
-        t1 = Task.objects.create(title="First")
+        Task.objects.create(title="First")
         t2 = Task.objects.create(title="Second")
         tasks = list(Task.objects.all())
         self.assertEqual(tasks[0], t2)
