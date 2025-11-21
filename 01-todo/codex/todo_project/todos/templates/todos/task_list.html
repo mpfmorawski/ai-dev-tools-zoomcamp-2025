@@ -1,70 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Todo List</title>
-  <style>
-    body { font-family: sans-serif; margin: 2rem auto; max-width: 700px; }
-    h1 { margin-bottom: 1rem; }
-    form.new-task { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; }
-    input[type="text"], textarea { padding: 0.6rem; font-size: 1rem; }
-    button { padding: 0.4rem 0.9rem; cursor: pointer; }
-    ul { list-style: none; padding: 0; }
-    li { border: 1px solid #ddd; padding: 0.75rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .task-details { flex: 1; }
-    .completed { text-decoration: line-through; color: #555; }
-    .task-actions { display: flex; gap: 0.5rem; }
-    .messages { margin-bottom: 1rem; }
-    .messages li { border: none; padding: 0; }
-  </style>
-</head>
-<body>
-  <h1>Todo List</h1>
+{% extends "base.html" %}
 
-  {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+{% block title %}Todo List{% endblock %}
+{% block header %}Todo List{% endblock %}
 
-  <form method="post" class="new-task">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    {{ form.title.errors }}
-    {{ form.title }}
-    {{ form.notes.errors }}
-    {{ form.notes }}
-    <button type="submit">Add Task</button>
-  </form>
+{% block content %}
+<style>
+  form.new-task {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
 
-  {% if tasks %}
-    <ul>
-      {% for task in tasks %}
-        <li>
-          <div class="task-details">
-            <strong class="{{ task.completed|yesno:'completed,' }}">{{ task.title }}</strong><br>
-            {% if task.notes %}<small>{{ task.notes }}</small><br>{% endif %}
-            <small>Created {{ task.created_at|date:"M j, Y H:i" }}</small>
-          </div>
-          <div class="task-actions">
-            <form method="post" action="{% url 'todos:toggle_task' task.pk %}">
-              {% csrf_token %}
-              <button type="submit">
-                {% if task.completed %}Mark Undone{% else %}Mark Done{% endif %}
-              </button>
-            </form>
-            <form method="post" action="{% url 'todos:delete_task' task.pk %}">
-              {% csrf_token %}
-              <button type="submit">Delete</button>
-            </form>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>No tasks yet. Add one above!</p>
-  {% endif %}
-</body>
-</html>
+  input[type="text"],
+  textarea {
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .task-details {
+    flex: 1;
+  }
+
+  .completed {
+    text-decoration: line-through;
+    color: #555;
+  }
+
+  .task-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .messages {
+    margin-bottom: 1rem;
+  }
+
+  .messages li {
+    border: none;
+    padding: 0;
+  }
+</style>
+
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post" class="new-task">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {{ form.title.errors }}
+  {{ form.title }}
+  {{ form.notes.errors }}
+  {{ form.notes }}
+  <button type="submit">Add Task</button>
+</form>
+
+{% if tasks %}
+<ul>
+  {% for task in tasks %}
+  <li>
+    <div class="task-details">
+      <strong class="{{ task.completed|yesno:'completed,' }}">{{ task.title }}</strong><br>
+      {% if task.notes %}<small>{{ task.notes }}</small><br>{% endif %}
+      <small>Created {{ task.created_at|date:"M j, Y H:i" }}</small>
+    </div>
+    <div class="task-actions">
+      <form method="post" action="{% url 'todos:toggle_task' task.pk %}">
+        {% csrf_token %}
+        <button type="submit">
+          {% if task.completed %}Mark Undone{% else %}Mark Done{% endif %}
+        </button>
+      </form>
+      <form method="post" action="{% url 'todos:delete_task' task.pk %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No tasks yet. Add one above!</p>
+{% endif %}
+{% endblock %}

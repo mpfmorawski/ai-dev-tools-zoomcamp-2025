@@ -86,3 +86,21 @@ Let's now ask AI to implement the logic for the TODO app. Where do we put it?
 ### Answer
 The TODO app logic is implemented in `views.py`.
 
+## Question 5. Templates
+
+### Question
+
+Next step is creating the templates. You will need at least two: the base one and the home one. Let's call them `base.html` and `home.html`.
+
+Where do you need to register the directory with the templates? 
+
+- `INSTALLED_APPS` in project's `settings.py`
+- `TEMPLATES['DIRS']` in project's `settings.py`
+- `TEMPLATES['APP_DIRS']` in project's `settings.py`
+- In the app's `urls.py`
+
+### Answer
+
+You register the project-level templates directory in `TEMPLATES['DIRS']` inside the project's `settings.py`.
+
+
