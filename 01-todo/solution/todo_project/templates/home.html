@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Todo Project{% endblock %}
+
+{% block content %}
+<p>Welcome to the Todo Project. Use the Tasks page to add and manage your tasks.</p>
+<p><a href="{% url 'todos:task_list' %}">View Tasks</a></p>
+{% endblock %}
