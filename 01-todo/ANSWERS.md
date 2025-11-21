@@ -103,4 +103,25 @@ Where do you need to register the directory with the templates?
 
 You register the project-level templates directory in `TEMPLATES['DIRS']` inside the project's `settings.py`.
 
+## Question 6. Tests
 
+### Question
+
+Now let's ask AI to cover our functionality with tests.
+
+- Ask it which scenarios we should cover
+- Make sure they make sense
+- Let it implement it and run them 
+
+Probably it will require a few iterations to make sure that tests pass and evertyhing is working. 
+
+What's the command you use for running tests in the terminal? 
+
+- `pytest`
+- `python manage.py test`
+- `python -m django run_tests`
+- `django-admin test`
+
+### Answer
+
+`python manage.py test`
