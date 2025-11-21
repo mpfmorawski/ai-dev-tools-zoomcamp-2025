@@ -2,8 +2,6 @@ from django.contrib import messages
 from django.contrib.messages.test import MessagesTestMixin
 from django.test import TestCase
 from django.urls import reverse
-from django.utils import timezone
-
 from .models import Task
 
 
