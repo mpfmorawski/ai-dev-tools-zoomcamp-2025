@@ -10,7 +10,7 @@ There could be multiple ways to do it. Put the one that AI suggested in the home
 
 ### Answer
 
-Initial command to install Django propsed by Codex:
+Initial command to install Django proposed by Codex:
 ```bash
 cd /home/mpfmorawski/learning/ai-dev-tools-zoomcamp-2025/ && python -m pip install Django
 ```
