@@ -1,5 +1,6 @@
 UV=uv
 MANAGE=$(UV) run python todo_project/manage.py
+APP?=todos
 
 .PHONY: help install runserver migrations migrate superuser check shell test
 
@@ -36,4 +37,4 @@ shell:
 	$(MANAGE) shell
 
 test:
-	$(MANAGE) test
+	$(MANAGE) test $(APP)
