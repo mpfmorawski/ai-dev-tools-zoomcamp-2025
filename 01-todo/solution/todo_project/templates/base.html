@@ -26,8 +26,8 @@
     <header>
         <h1>{% block header %}Todo Project{% endblock %}</h1>
         <nav>
-            <a href="/">Home</a>
-            <a href="/todos/">Tasks</a>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'todos:task_list' %}">Tasks</a>
         </nav>
     </header>
 
