@@ -113,7 +113,7 @@ Now let's ask AI to cover our functionality with tests.
 - Make sure they make sense
 - Let it implement it and run them 
 
-Probably it will require a few iterations to make sure that tests pass and evertyhing is working. 
+Probably it will require a few iterations to make sure that tests pass and everything is working. 
 
 What's the command you use for running tests in the terminal? 
 
