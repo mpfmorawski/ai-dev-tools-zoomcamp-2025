@@ -57,4 +57,17 @@ What's the next step you need to take?
 
 ### Answer
 
-???
+The `Task` model is implemented in `codex/todo_project/todos/models.py` with fields:
+- `title` (CharField)
+- `notes` (TextField, optional)
+- `completed` (BooleanField)
+- `created_at` (DateTimeField, auto_now_add=True)
+- `updated_at` (DateTimeField, auto_now=True)
+
+Next step: **Run migrations** — create and apply the migrations with:
+
+```bash
+cd 01-todo/codex
+python manage.py makemigrations
+python manage.py migrate
+```
