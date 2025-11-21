@@ -71,3 +71,18 @@ cd 01-todo/codex
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+## Question 4. TODO Logic
+
+### Question
+
+Let's now ask AI to implement the logic for the TODO app. Where do we put it?
+
+- `views.py`
+- `urls.py`
+- `admin.py`
+- `tests.py`
+
+### Answer
+The TODO app logic is implemented in `views.py`.
+
