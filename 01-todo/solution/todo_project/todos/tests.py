@@ -19,7 +19,7 @@ class TaskViewTest(TestCase, MessagesTestMixin):
 
     def test_task_list_get_with_tasks(self):
         t1 = Task.objects.create(title="Task 1")
-        t2 = Task.objects.create(title="Task 2")
+        Task.objects.create(title="Task 2")
         response = self.client.get(reverse("todos:task_list"))
         self.assertEqual(response.status_code, 200)
         tasks = list(response.context["tasks"])
